@@ -1,9 +1,13 @@
-LAB 5 MQTT Publisher : 5 คะแนน
+LAB 5 MQTT Publisher : 10 คะแนน
 
 คำแนะนำการทดลอง (Instruction):
 1. แก้ไขค่า ssid และ password เป็นของเครือข่าย WiFi 2.4 GHz
-2. โค้ดใช้ Public Broker ฟรี: broker.hivemq.com พอร์ต 1883
-3. เพื่อไม่ให้ชนกับผู้อื่น ให้เปลี่ยนชื่อ Topic เช่น student/id/temp
-4. ต่อเซนเซอร์ DHT ที่ขา GPIO 4 และตั้งค่า DHTTYPE ให้ตรงกับฮาร์ดแวร์ที่ใช้
-5. อัปโหลดโปรแกรมและเปิด Serial Monitor ที่ Baud Rate 115200
-6. ใช้เว็บทดสอบ MQTT เช่น http://www.hivemq.com/demos/websocket-client/ เพื่อดูข้อมูลที่ ESP32 ส่งออกไป
+2. แก้ไขตัวแปร student_id ให้เป็นรหัสนักศึกษาหรือชื่อกลุ่มของตนเอง เช่น "65012345" (เพื่อแยก Topic ไม่ให้ชนกับผู้อื่น)
+3. ตรวจสอบการต่อสายเซนเซอร์ DHT ที่ขา GPIO 4 และตั้งค่า DHTTYPE ให้ตรงกับฮาร์ดแวร์
+4. อัปโหลดโปรแกรมและเปิด Serial Monitor ที่ Baud Rate 115200 สังเกตชื่อ Topic ที่บอร์ดใช้
+5. บอร์ดจะส่งค่าอุณหภูมิและความชื้น "พร้อมกันในรูปแบบ JSON" (เช่น {"temp": 28.5, "hum": 60.0}) ไปยัง Topic: student/<student_id>/sensor ทุก 5 วินาที
+6. ทดสอบการรับข้อมูลด้วยโปรแกรม MQTTX (หรือ https://mqttx.app/):
+   - สร้าง Connection ใหม่ใน MQTTX ตั้งค่า Host: broker.emqx.io พอร์ต 1883 แล้วกด Connect
+   - กด "+ New Subscription" ใส่ Topic ของตนเอง:
+     * student/<student_id>/sensor หรือ student/<student_id>/# (เช่น student/65012345/#)
+   - สังเกตข้อความอุณหภูมิและความชื้นที่ส่งเข้ามาพร้อมกัน โดยไม่ปะปนกับของผู้อื่น

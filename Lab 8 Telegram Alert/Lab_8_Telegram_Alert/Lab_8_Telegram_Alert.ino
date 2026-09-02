@@ -8,7 +8,7 @@ const char* password = "YOUR_WIFI_PASSWORD";
 #define BOTtoken "YOUR_TELEGRAM_BOT_TOKEN"
 #define CHAT_ID "YOUR_TELEGRAM_CHAT_ID"
 
-const int buttonPin = 14;
+const int buttonPin = 23;
 int lastButtonState = HIGH;
 
 WiFiClientSecure secured_client;

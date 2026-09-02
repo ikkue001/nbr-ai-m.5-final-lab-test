@@ -1,8 +1,20 @@
-LAB 7 MQTT IoT Control System : 5 คะแนน
+LAB 7 MQTT IoT Control System : 15 คะแนน
 
 คำแนะนำการทดลอง (Instruction):
 1. แก้ไขค่า ssid และ password เป็นของเครือข่าย WiFi 2.4 GHz
-2. รวมความสามารถทั้ง Publish และ Subscribe ในอุปกรณ์ตัวเดียว
-3. ต่อเซนเซอร์ DHT ที่ขา GPIO 4 และต่อ LED ที่ขา GPIO 2
-4. เมื่อ ESP32 ได้รับคำสั่งเปลี่ยนสถานะ LED (Topic: lab_test/esp32/led/set) จะส่งข้อความยืนยันกลับไปยัง Topic lab_test/esp32/led/status ทันที
-5. รายงานค่าเซนเซอร์ตามรอบเวลา 5 วินาที ไปยัง Topic lab_test/esp32/temp
+2. แก้ไขตัวแปร student_id ให้เป็นรหัสนักศึกษาหรือชื่อกลุ่มของตนเอง เช่น "65012345"
+3. รวมความสามารถทั้ง Publish และ Subscribe ในอุปกรณ์ตัวเดียว:
+   - ส่งค่าอุณหภูมิและความชื้นพร้อมกัน (JSON) ไปยัง Topic: student/<student_id>/sensor
+   - รับคำสั่งเปิด/ปิดไฟจาก Topic: student/<student_id>/led/set
+   - ส่งสถานะยืนยันกลับไปยัง Topic: student/<student_id>/led/status ทันทีที่สั่งงาน
+4. ต่อเซนเซอร์ DHT ที่ขา GPIO 4 และต่อ LED ที่ขา GPIO 2
+5. อัปโหลดโปรแกรมและเปิด Serial Monitor ที่ Baud Rate 115200
+6. ทดสอบการทำงาน Two-Way Control ด้วยโปรแกรม MQTTX (หรือ https://mqttx.app/):
+   - สร้าง Connection ใน MQTTX (Host: broker.emqx.io, Port: 1883) แล้วกด Connect
+   - กด "+ New Subscription" เพื่อดักฟังข้อมูลของตนเอง:
+     * student/<student_id>/# (เช่น student/65012345/# จะได้รับทั้ง sensor และ led/status)
+   - ส่งคำสั่งควบคุม (Publish) ไปที่ Topic: student/<student_id>/led/set ด้วยข้อความ "ON" หรือ "OFF"
+   - สังเกตการแสดงผล:
+     * ข้อความอุณหภูมิและความชื้นที่ส่งมาพร้อมกันใน Topic sensor ทุก 5 วินาที
+     * หลอดไฟ LED ที่บอร์ดเปลี่ยนสถานะตามคำสั่ง
+     * ข้อความยืนยันสถานะ "ON" หรือ "OFF" ส่งกลับมาที่ Topic led/status ในทันที

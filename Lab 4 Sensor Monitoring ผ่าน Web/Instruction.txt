@@ -1,4 +1,4 @@
-LAB 4 Sensor Monitoring ผ่าน Web : 5 คะแนน
+LAB 4 Sensor Monitoring ผ่าน Web : 10 คะแนน
 
 คำแนะนำการทดลอง (Instruction):
 1. แก้ไขค่า ssid และ password เป็นของเครือข่าย WiFi 2.4 GHz

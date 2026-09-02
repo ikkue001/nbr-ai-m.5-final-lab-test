@@ -1,18 +1,25 @@
-LAB 10 Mini Project — Smart IoT Integrated System : 10 คะแนน
+LAB 10 Mini Project — Smart IoT Integrated System : 15 คะแนน
 
 แนวคิดของระบบ (System Concept):
 - อ่านค่าอุณหภูมิและความชื้นจาก DHT22 ที่ขา GPIO 4
 - แสดงผลและควบคุมไฟ LED ที่ขา GPIO 2 ผ่านหน้าเว็บ HTTP Web Server
-- ส่งข้อมูล Telemetry (อุณหภูมิ, ความชื้น) ขึ้น MQTT Broker เป็นระยะ (Topic: lab10/temp, lab10/hum)
+- ส่งข้อมูล Telemetry (อุณหภูมิ, ความชื้น) พร้อมกันในรูปแบบ JSON ขึ้น MQTT Broker (Topic: student/<student_id>/sensor) ทุก 5 วินาที
 - เมื่ออุณหภูมิเกินกว่าเกณฑ์ที่กำหนด (> 35°C) ให้ส่งข้อความแจ้งเตือนเข้า Telegram พร้อมสั่งเปิด Buzzer ที่ขา GPIO 18 อัตโนมัติ
 
 คำแนะนำการทดลอง (Instruction):
-1. แก้ไขค่า ssid, password, BOTtoken และ CHAT_ID ให้ถูกต้อง
+1. แก้ไขค่า ssid, password, student_id, BOTtoken และ CHAT_ID ให้ถูกต้อง
+   (student_id เช่น "65012345" เพื่อแยก Topic ไม่ให้ชนกับผู้อื่น)
 2. ต่อวงจร:
    - เซนเซอร์ DHT22 ที่ GPIO 4
    - หลอดไฟ LED ที่ GPIO 2
    - Buzzer ที่ GPIO 18
-3. อัปโหลดโปรแกรมและเปิด Serial Monitor ที่ Baud Rate 115200 ตรวจสอบ IP Address
-4. เปิดหน้าเว็บตาม IP Address เพื่อดูค่าเซนเซอร์ และทดสอบกดเปิด/ปิด LED
-5. ตรวจสอบข้อมูลอุณหภูมิและความชื้นที่ส่งขึ้น MQTT Broker (broker.hivemq.com)
-6. ทดสอบจำลองอุณหภูมิสูงเกิน 35°C (หรือปรับเกณฑ์ในโค้ดเพื่อทดสอบ) สังเกตการแจ้งเตือนทาง Telegram และเสียง Buzzer
+3. สร้างบอทผ่าน @BotFather ใน Telegram เพื่อรับ BOT_TOKEN และทำการกดลิงก์ไปหา Bot เพื่อสั่ง /start
+4. ค้นหาไอดีผู้ใช้ผ่าน @userinfobot เพื่อรับ CHAT_ID ของตนเอง
+     (หากมี bot อยู่แล้วให้ใช้ bot ตัวเดิมได้เลย โดยใส่ค่า BOT_TOKEN และ CHAT_ID ที่มีอยู่)
+5. อัปโหลดโปรแกรมและเปิด Serial Monitor ที่ Baud Rate 115200 ตรวจสอบ IP Address และชื่อ Topic
+6. เปิดหน้าเว็บตาม IP Address เพื่อดูค่าเซนเซอร์ และทดสอบกดเปิด/ปิด LED
+7. ทดสอบตรวจสอบข้อมูลด้วยโปรแกรม MQTTX (หรือ https://mqttx.app/):
+   - ตั้งค่า Connection ใน MQTTX (Host: broker.emqx.io, Port: 1883) แล้วกด Connect
+   - กด "+ New Subscription" ใส่ Topic: student/<student_id>/# หรือ student/<student_id>/sensor
+   - สังเกตข้อมูลอุณหภูมิและความชื้นที่ส่งเข้ามาพร้อมกันในรูปแบบ JSON ทุก 5 วินาที
+8. ทดสอบจำลองอุณหภูมิสูงเกิน 35°C (หรือปรับเกณฑ์ในโค้ดเพื่อทดสอบ โดยปรับค่าที่ temp_target) สังเกตการแจ้งเตือนทาง Telegram และเสียง Buzzer

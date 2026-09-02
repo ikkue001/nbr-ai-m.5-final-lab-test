@@ -1,8 +1,14 @@
-LAB 6 MQTT Subscriber : 5 คะแนน
+LAB 6 MQTT Subscriber : 10 คะแนน
 
 คำแนะนำการทดลอง (Instruction):
 1. แก้ไขค่า ssid และ password เป็นของเครือข่าย WiFi 2.4 GHz
-2. อัปโหลดโปรแกรม บอร์ดจะเข้าไปดักฟังที่ Topic lab_test/esp32/led/set
-3. ต่อ LED หรือสังเกตไฟ LED ที่ขา GPIO 2
-4. ใช้ MQTT Client ส่งข้อความ "ON" เพื่อเปิดไฟ หรือ "OFF" เพื่อปิดไฟ
-5. สังเกตสถานะการทำงานผ่าน Serial Monitor ที่ Baud Rate 115200
+2. แก้ไขตัวแปร student_id ให้เป็นรหัสนักศึกษาหรือชื่อกลุ่มของตนเอง เช่น "65012345"
+3. อัปโหลดโปรแกรม บอร์ดจะเข้าไป Subscribe รอรับคำสั่งเฉพาะ Topic ของตนเองคือ:
+   student/<student_id>/led/set (เช่น student/65012345/led/set)
+4. ต่อ LED หรือสังเกตไฟ LED ที่ขา GPIO 2
+5. ทดสอบส่งคำสั่งเปิด/ปิดไฟด้วยโปรแกรม MQTTX (หรือ https://mqttx.app/):
+   - สร้าง Connection ใหม่ใน MQTTX ตั้งค่า Host: broker.emqx.io พอร์ต 1883 แล้วกด Connect
+   - ในช่องส่งข้อความ (Publish) ด้านล่าง ใส่ Topic ของตนเอง:
+     * Topic: student/<student_id>/led/set (เช่น student/65012345/led/set)
+     * Payload: ส่งข้อความ "ON" เพื่อเปิดไฟ หรือ "OFF" เพื่อปิดไฟ
+6. สังเกตสถานะหลอด LED ที่บอร์ด ESP32 และสถานะการทำงานผ่าน Serial Monitor ที่ Baud Rate 115200 โดยจะไม่ไปสั่งงานบอร์ด
