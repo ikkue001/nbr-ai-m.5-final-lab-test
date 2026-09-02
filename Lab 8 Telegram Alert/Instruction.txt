@@ -1,0 +1,9 @@
+LAB 8 Telegram Alert : 5 คะแนน
+
+คำแนะนำการทดลอง (Instruction):
+1. แก้ไขค่า ssid และ password เป็นของเครือข่าย WiFi 2.4 GHz
+2. สร้างบอทผ่าน @BotFather ใน Telegram เพื่อรับ BOT_TOKEN
+3. ค้นหาไอดีผู้ใช้ผ่าน @userinfobot เพื่อรับ CHAT_ID
+4. ต่อปุ่มกดที่ GPIO 14 (เมื่อกดปุ่ม ขาจะต่อลง GND) เพื่อสั่งให้ส่งข้อความเตือน
+5. อัปโหลดโปรแกรมและเปิด Serial Monitor ที่ Baud Rate 115200
+6. ทดสอบกดปุ่ม สังเกตข้อความแจ้งเตือนที่ได้รับในแอป Telegram

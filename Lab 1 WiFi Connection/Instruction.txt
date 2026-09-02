@@ -1,0 +1,7 @@
+LAB 1 WiFi Connection : 5 คะแนน
+
+คำแนะนำการทดลอง (Instruction):
+1. แก้ไขค่า ssid และ password เป็นของเครือข่าย WiFi 2.4 GHz
+2. อัปโหลดโปรแกรมและเปิด Serial Monitor ที่ Baud Rate 115200
+3. ตรวจสอบการเชื่อมต่อและจดบันทึก IP Address ที่ได้รับ
+4. ทดสอบปิดเราเตอร์หรือ Hotspot ชั่วคราว สังเกตการ Reconnect อัตโนมัติในฟังก์ชัน loop()

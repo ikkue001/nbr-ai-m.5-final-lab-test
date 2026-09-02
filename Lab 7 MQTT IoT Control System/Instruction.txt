@@ -1,0 +1,8 @@
+LAB 7 MQTT IoT Control System : 5 คะแนน
+
+คำแนะนำการทดลอง (Instruction):
+1. แก้ไขค่า ssid และ password เป็นของเครือข่าย WiFi 2.4 GHz
+2. รวมความสามารถทั้ง Publish และ Subscribe ในอุปกรณ์ตัวเดียว
+3. ต่อเซนเซอร์ DHT ที่ขา GPIO 4 และต่อ LED ที่ขา GPIO 2
+4. เมื่อ ESP32 ได้รับคำสั่งเปลี่ยนสถานะ LED (Topic: lab_test/esp32/led/set) จะส่งข้อความยืนยันกลับไปยัง Topic lab_test/esp32/led/status ทันที
+5. รายงานค่าเซนเซอร์ตามรอบเวลา 5 วินาที ไปยัง Topic lab_test/esp32/temp

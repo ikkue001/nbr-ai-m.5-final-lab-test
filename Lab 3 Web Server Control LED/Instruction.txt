@@ -1,0 +1,8 @@
+LAB 3 Web Server Control LED : 5 คะแนน
+
+คำแนะนำการทดลอง (Instruction):
+1. แก้ไขค่า ssid และ password เป็นของเครือข่าย WiFi 2.4 GHz
+2. อัปโหลดโค้ดลง ESP32 และเปิด Serial Monitor ที่ Baud Rate 115200
+3. เข้าไปที่ IP Address ของ ESP32 ผ่านเว็บบราวเซอร์
+4. กดปุ่ม ON หรือ OFF บนหน้าเว็บบราวเซอร์ สังเกตไฟ LED ที่ GPIO 2
+5. สังเกตการเปลี่ยนเส้นทาง (Routing) ระหว่าง /led/on และ /led/off

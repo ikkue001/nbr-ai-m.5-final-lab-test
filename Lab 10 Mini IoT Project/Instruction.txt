@@ -1,0 +1,18 @@
+LAB 10 Mini Project — Smart IoT Integrated System : 10 คะแนน
+
+แนวคิดของระบบ (System Concept):
+- อ่านค่าอุณหภูมิและความชื้นจาก DHT22 ที่ขา GPIO 4
+- แสดงผลและควบคุมไฟ LED ที่ขา GPIO 2 ผ่านหน้าเว็บ HTTP Web Server
+- ส่งข้อมูล Telemetry (อุณหภูมิ, ความชื้น) ขึ้น MQTT Broker เป็นระยะ (Topic: lab10/temp, lab10/hum)
+- เมื่ออุณหภูมิเกินกว่าเกณฑ์ที่กำหนด (> 35°C) ให้ส่งข้อความแจ้งเตือนเข้า Telegram พร้อมสั่งเปิด Buzzer ที่ขา GPIO 18 อัตโนมัติ
+
+คำแนะนำการทดลอง (Instruction):
+1. แก้ไขค่า ssid, password, BOTtoken และ CHAT_ID ให้ถูกต้อง
+2. ต่อวงจร:
+   - เซนเซอร์ DHT22 ที่ GPIO 4
+   - หลอดไฟ LED ที่ GPIO 2
+   - Buzzer ที่ GPIO 18
+3. อัปโหลดโปรแกรมและเปิด Serial Monitor ที่ Baud Rate 115200 ตรวจสอบ IP Address
+4. เปิดหน้าเว็บตาม IP Address เพื่อดูค่าเซนเซอร์ และทดสอบกดเปิด/ปิด LED
+5. ตรวจสอบข้อมูลอุณหภูมิและความชื้นที่ส่งขึ้น MQTT Broker (broker.hivemq.com)
+6. ทดสอบจำลองอุณหภูมิสูงเกิน 35°C (หรือปรับเกณฑ์ในโค้ดเพื่อทดสอบ) สังเกตการแจ้งเตือนทาง Telegram และเสียง Buzzer

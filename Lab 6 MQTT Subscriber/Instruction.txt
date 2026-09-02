@@ -1,0 +1,8 @@
+LAB 6 MQTT Subscriber : 5 คะแนน
+
+คำแนะนำการทดลอง (Instruction):
+1. แก้ไขค่า ssid และ password เป็นของเครือข่าย WiFi 2.4 GHz
+2. อัปโหลดโปรแกรม บอร์ดจะเข้าไปดักฟังที่ Topic lab_test/esp32/led/set
+3. ต่อ LED หรือสังเกตไฟ LED ที่ขา GPIO 2
+4. ใช้ MQTT Client ส่งข้อความ "ON" เพื่อเปิดไฟ หรือ "OFF" เพื่อปิดไฟ
+5. สังเกตสถานะการทำงานผ่าน Serial Monitor ที่ Baud Rate 115200

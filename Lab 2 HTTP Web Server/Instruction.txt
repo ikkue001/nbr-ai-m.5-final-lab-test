@@ -1,0 +1,7 @@
+LAB 2 HTTP Web Server : 5 คะแนน
+
+คำแนะนำการทดลอง (Instruction):
+1. แก้ไขค่า ssid และ password เป็นของเครือข่าย WiFi 2.4 GHz
+2. อัปโหลดโค้ดลง ESP32 และเปิด Serial Monitor ที่ Baud Rate 115200
+3. นำ IP Address จาก Serial Monitor ไปเปิดบนเว็บบราวเซอร์ของอุปกรณ์ที่ต่ออยู่ใน WiFi เดียวกัน
+4. ทดสอบการแสดงผลหน้าเว็บและดูค่า Uptime ที่เปลี่ยนไปตามการเปิดทำงานของบอร์ด

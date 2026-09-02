@@ -1,0 +1,7 @@
+LAB 9 Telegram Control : 5 คะแนน
+
+คำแนะนำการทดลอง (Instruction):
+1. แก้ไขค่า ssid และ password เป็นของเครือข่าย WiFi 2.4 GHz
+2. ใช้ BOT_TOKEN และ CHAT_ID เดิม (หรือตั้งค่าจาก @BotFather และ @userinfobot)
+3. พิมพ์คำสั่ง /led_on, /led_off หรือ /status ในห้องแชตของ Telegram บอทจะตอบกลับผลการทำงานทันที
+4. สังเกตสถานะหลอด LED ที่ขา GPIO 2

@@ -1,0 +1,9 @@
+LAB 5 MQTT Publisher : 5 คะแนน
+
+คำแนะนำการทดลอง (Instruction):
+1. แก้ไขค่า ssid และ password เป็นของเครือข่าย WiFi 2.4 GHz
+2. โค้ดใช้ Public Broker ฟรี: broker.hivemq.com พอร์ต 1883
+3. เพื่อไม่ให้ชนกับผู้อื่น ให้เปลี่ยนชื่อ Topic เช่น student/id/temp
+4. ต่อเซนเซอร์ DHT ที่ขา GPIO 4 และตั้งค่า DHTTYPE ให้ตรงกับฮาร์ดแวร์ที่ใช้
+5. อัปโหลดโปรแกรมและเปิด Serial Monitor ที่ Baud Rate 115200
+6. ใช้เว็บทดสอบ MQTT เช่น http://www.hivemq.com/demos/websocket-client/ เพื่อดูข้อมูลที่ ESP32 ส่งออกไป
