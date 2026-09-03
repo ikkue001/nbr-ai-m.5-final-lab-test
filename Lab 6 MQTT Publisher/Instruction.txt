@@ -1,4 +1,4 @@
-LAB 6 MQTT Subscriber : 10 คะแนน
+LAB 6 MQTT Publisher : 10 คะแนน
 
 คำแนะนำการทดลอง (Instruction):
 1. แก้ไขค่า ssid และ password เป็นของเครือข่าย WiFi 2.4 GHz

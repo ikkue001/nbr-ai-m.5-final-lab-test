@@ -12,7 +12,7 @@ LAB 10 Mini Project — Smart IoT Integrated System : 15 คะแนน
 2. ต่อวงจร:
    - เซนเซอร์ DHT22 ที่ GPIO 4
    - หลอดไฟ LED ที่ GPIO 2
-   - Buzzer ที่ GPIO 18
+ - Buzzer ที่ GPIO 18
 3. สร้างบอทผ่าน @BotFather ใน Telegram เพื่อรับ BOT_TOKEN และทำการกดลิงก์ไปหา Bot เพื่อสั่ง /start
 4. ค้นหาไอดีผู้ใช้ผ่าน @userinfobot เพื่อรับ CHAT_ID ของตนเอง
      (หากมี bot อยู่แล้วให้ใช้ bot ตัวเดิมได้เลย โดยใส่ค่า BOT_TOKEN และ CHAT_ID ที่มีอยู่)
